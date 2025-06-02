@@ -1,0 +1,96 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Salón de Uñas Bella</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <h1>Salón de Uñas Bella</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="mostrarSeccion('inicio')">Inicio</a></li>
+                <li><a href="#" onclick="mostrarSeccion('servicios')">Servicios</a></li>
+                <li><a href="#" onclick="mostrarSeccion('quienes')">Quiénes Somos</a></li>
+                <li><a href="#" onclick="mostrarSeccion('contacto')">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="seccion activa">
+            <div class="inicio-mensaje">
+                <h2>¡Bienvenida a Bella!</h2>
+                <p>Donde entras con 3 chismes y sales con 10 </p>
+                <p>Ven y disfruta una tarde de chicas </p>
+                <p>Tenemos el mejor servicio para ti</p>
+            </div>
+        </section>
+
+        <section id="servicios" class="seccion">
+            <h2>Servicios</h2>
+            <div class="galeria-servicios">
+                <div class="servicio">
+                    <img src="https://i.imgur.com/KqU9IRv.jpg" alt="Manicura">
+                    <h3>Manicura</h3>
+                    <p>Tradicional, permanente y spa.</p>
+                </div>
+                <div class="servicio">
+                    <img src="https://i.imgur.com/UtZrB3L.jpg" alt="Pedicura">
+                    <h3>Pedicura</h3>
+                    <p>Relajante, con exfoliación y cuidado profundo.</p>
+                </div>
+                <div class="servicio">
+                    <img src="https://i.imgur.com/RFj1hIv.jpg" alt="Uñas acrílicas">
+                    <h3>Uñas Acrílicas</h3>
+                    <p>Con acabados naturales o extremos.</p>
+                </div>
+                <div class="servicio">
+                    <img src="diseno personalizado.jpg" alt="Diseños personalizados">
+                    <h3>Diseños</h3>
+                    <p>Creativos, únicos y llenos de color.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="quienes" class="seccion">
+            <h2>Quiénes Somos</h2>
+            <p>Somos un equipo profesional con más de 10 años de experiencia en estética y diseño de uñas. Nuestro compromiso es tu satisfacción y bienestar.</p>
+        </section>
+
+        <section id="contacto" class="seccion">
+            <h2>Contacto y Agenda tu Cita</h2>
+            <form onsubmit="agendarCita(event)">
+                <input type="text" placeholder="Tu nombre" required>
+                <input type="email" placeholder="Tu correo electrónico" required>
+                <input type="date" required>
+                <input type="time" required>
+                <textarea placeholder="Mensaje o servicio deseado" required></textarea>
+                <button type="submit">Agendar Cita</button>
+            </form>
+            <p id="mensaje-confirmacion"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Salón de Uñas Bella. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function mostrarSeccion(id) {
+            const secciones = document.querySelectorAll('.seccion');
+            secciones.forEach(seccion => {
+                seccion.classList.remove('activa');
+            });
+            document.getElementById(id).classList.add('activa');
+        }
+
+        function agendarCita(event) {
+            event.preventDefault();
+            document.getElementById("mensaje-confirmacion").textContent = " ¡Tu cita ha sido agendada! Te esperamos ";
+        }
+    </script>
+</body>
+</html>
